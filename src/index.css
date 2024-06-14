@@ -7,7 +7,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-slzing: border-box;
+  box-sizing: border-box;
 }
 
 ::-webkit-scrollbar {
@@ -27,10 +27,13 @@
   background: #555;
 }
 
-@layer {
+@layer base {
   body {
     font-family: "Inter", sans-serif;
   }
+}
+
+@layer components {
   .active_Link {
     @apply text-secondary;
   }
@@ -62,7 +65,7 @@
     @apply medium-16 bg-primary/95 px-[1.3rem] py-2 text-white rounded-full hover:bg-black shadow-md transition-all;
   }
   .btn_secondary_rounded {
-    @apply medium-16 bg-secondary px-[1.3rem] py-2 text-white  rounded-full hover:bg-secondary/95 shadow-md transition-all;
+    @apply medium-16 bg-secondary px-[1.3rem] py-2 text-white rounded-full hover:bg-secondary/95 shadow-md transition-all;
   }
   .max-container {
     @apply mx-auto max-w-[1440px];
@@ -77,12 +80,12 @@
     @apply flex items-center justify-center;
   }
   .flexBetween {
+    @apply flex items-center justify-between;
+  }
+  .flexStart {
     @apply flex items-center justify-start;
   }
-  .fleStart {
-    @apply flex items-center justify-start;
-  }
-  .flexend {
+  .flexEnd {
     @apply flex items-center justify-end;
   }
   .regular-64 {
@@ -146,7 +149,7 @@
     @apply text-[36px] font-[700] leading-[120%];
   }
   .bold-32 {
-    @apply text-[32px] font-[700] leading-[120%];
+    @apply text-[32px] font-[700];
   }
   .bold-28 {
     @apply text-[28px] font-[700] leading-[120%];
