@@ -20,9 +20,9 @@ export default function App() {
           <Header />
           <Routes>
             <Route path="/" exact element={<Home />} />
-            <Route path="/crypto" exact element={<Crypto />} />
+            <Route path="crypto" exact element={<Crypto />} />
             <Route
-              path="/blog"
+              path="blog"
               exact
               element={
                 <Protected isAuth={isAuth}>
@@ -31,7 +31,7 @@ export default function App() {
               }
             />
             <Route
-              path="/submit"
+              path="submit"
               exact
               element={
                 <Protected isAuth={isAuth}>
@@ -39,9 +39,9 @@ export default function App() {
                 </Protected>
               }
             />
-            <Route path="/signup" exact element={<Signup />} />
-            <Route path="/login" exact element={<Login />} />
-            <Route path="/logut" exact element={<div>Logout page</div>} />
+            <Route path="signup" exact element={<Signup />} />
+            <Route path="login" exact element={<Login />} />
+            <Route path="logut" exact element={<div>Logout page</div>} />
             <Route path="*" exact element={<Error />} />
           </Routes>
           <Footer />

@@ -18,3 +18,14 @@ export const login = async (data) => {
   }
   return response;
 };
+
+export const signup = async (data) => {
+  let response;
+
+  try {
+    response = await api.post("/register", data);
+  } catch (error) {
+    return error;
+  }
+  return response;
+};
