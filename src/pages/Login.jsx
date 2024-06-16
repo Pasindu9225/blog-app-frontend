@@ -24,7 +24,7 @@ const Login = () => {
         _id: response.data.user._id,
         email: response.data.user.email,
         username: response.data.user.username,
-        auth: response.data.user.auth,
+        auth: response.data.auth,
       };
       dispatch(setUser(user));
       navigate("/");
@@ -95,6 +95,7 @@ const Login = () => {
           Register
         </button>
       </span>
+      {error !== "" ? <p className=" text-red-500 my-5 mx-0">{error}</p> : ""}
     </div>
   );
 };

@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const isAuthenticated = false;
+  const isAuthenticated = useSelector((state) => state.user.auth);
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened(!menuOpened);
 

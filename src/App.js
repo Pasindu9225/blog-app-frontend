@@ -9,9 +9,10 @@ import Protected from "./components/Protected";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Error from "./pages/Errror";
+import { useSelector } from "react-redux";
 
 export default function App() {
-  const isAuth = true;
+  const isAuth = useSelector((state) => state.user.auth);
   return (
     <>
       <BrowserRouter>
