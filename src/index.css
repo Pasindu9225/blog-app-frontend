@@ -56,7 +56,7 @@
 
 @layer utilities {
   .btn_white_rounded {
-    @apply bold-16 bg-white px-[1.3rem] py-2 text-gray-90 rounded-full hover:bg-slate-10 transition-all;
+    @apply bold-16 bg-white px-[1.3rem] py-2 text-gray-90 rounded-full hover:bg-slate-100 transition-all;
   }
   .btn_light_rounded {
     @apply medium-16 bg-slate-10 px-[1.3rem] py-2 text-gray-90 rounded-full hover:bg-slate-50 shadow-md transition-all;
@@ -71,10 +71,10 @@
     @apply mx-auto max-w-[1440px];
   }
   .padding-container {
-    @apply px-6 lg:px-20 3xl:px-0;
+    @apply px-6 lg:px-20 2xl:px-0;
   }
   .max_padd_container {
-    @apply mx-auto max-w-[1440px] px-6 lg:px-20 3xl:px-0;
+    @apply mx-auto max-w-[1440px] px-6 lg:px-20 2xl:px-0;
   }
   .flexCenter {
     @apply flex items-center justify-center;
