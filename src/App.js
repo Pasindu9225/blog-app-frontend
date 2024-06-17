@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Crypto from "./pages/Crypto";
 import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
 import Submitblog from "./pages/Submitblog";
 import Protected from "./components/Protected";
 import Signup from "./pages/Signup";
@@ -23,6 +24,24 @@ export default function App() {
             <Route path="crypto" exact element={<Crypto />} />
             <Route
               path="blog"
+              exact
+              element={
+                <Protected isAuth={isAuth}>
+                  <Blog />
+                </Protected>
+              }
+            />
+            <Route
+              path="blog/:id"
+              exact
+              element={
+                <Protected isAuth={isAuth}>
+                  <BlogDetails />
+                </Protected>
+              }
+            />
+            <Route
+              path="blog-update/:id"
               exact
               element={
                 <Protected isAuth={isAuth}>

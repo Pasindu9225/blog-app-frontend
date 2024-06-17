@@ -39,9 +39,7 @@ const Login = () => {
       password: "",
     },
     validationSchema: loginSchema,
-    onSubmit: (values) => {
-      handleLogin(values);
-    },
+    onSubmit: handleLogin,
   });
 
   return (
@@ -82,6 +80,12 @@ const Login = () => {
         <button
           type="submit"
           className="btn_dark_rounded !py-[12px] mt-7 min-w-[299px] disabled:bg-[#333]"
+          disabled={
+            !formik.values.username ||
+            !formik.values.password ||
+            formik.errors.username ||
+            formik.errors.password
+          }
         >
           Log In
         </button>

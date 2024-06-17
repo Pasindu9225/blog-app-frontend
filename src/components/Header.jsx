@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { CgMenuRight, CgClose } from "react-icons/cg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../api/internal";
+import { resetUser } from "../store/userSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.auth);
   const [menuOpened, setMenuOpened] = useState(false);
   const toggleMenu = () => setMenuOpened(!menuOpened);
+
+  const handleLogout = async () => {
+    await signout();
+    dispatch(resetUser());
+  };
 
   return (
     <div className="fixed top-2 left-0 m-auto max_padd_container w-full">
@@ -36,9 +44,12 @@ const Header = () => {
           )}
           {isAuthenticated ? (
             <div className=" flexBetween gap-x-2">
-              <NavLink to={"/login"} className={"btn_secondary_rounded !py-3"}>
+              <button
+                className={"btn_secondary_rounded !py-3"}
+                onClick={handleLogout}
+              >
                 Log Out
-              </NavLink>
+              </button>
             </div>
           ) : (
             <div className=" flexBetween gap-x-1">

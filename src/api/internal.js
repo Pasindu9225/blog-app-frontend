@@ -9,21 +9,41 @@ const api = axios.create({
 });
 
 export const login = async (data) => {
-  let response;
-
   try {
-    response = await api.post("/login", data);
+    return await api.post("/login", data);
   } catch (error) {
     return error;
   }
-  return response;
 };
 
 export const signup = async (data) => {
-  let response;
-
   try {
-    response = await api.post("/register", data);
+    return await api.post("/register", data);
+  } catch (error) {
+    return error;
+  }
+};
+
+export const signout = async () => {
+  try {
+    return await api.post("/logout");
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getAllBlogs = async () => {
+  try {
+    return await api.get("/blog/all");
+  } catch (error) {
+    return error;
+  }
+};
+
+export const submitBlog = async (data) => {
+  let response;
+  try {
+    response = await api.post("/blog", data);
   } catch (error) {
     return error;
   }
