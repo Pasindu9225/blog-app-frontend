@@ -1,8 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import Crypto from "./pages/Crypto";
+import News from "./pages/Home";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import BlogUpdate from "./pages/BlogUpdate";
@@ -26,8 +25,8 @@ export default function App() {
         <main className=" bg-white text-primary">
           <Header />
           <Routes>
-            <Route path="/" exact element={<Home />} />
-            <Route path="crypto" exact element={<Crypto />} />
+            <Route path="/" exact element={<Blog />} />
+            <Route path="/news" exact element={<News />} />
             <Route
               path="blog"
               exact

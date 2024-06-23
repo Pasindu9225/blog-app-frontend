@@ -50,7 +50,7 @@ const Signup = () => {
   return (
     <div className="mx-auto max-w-[90%] px-2 flexCenter flex-col pt-48 overflow-hidden">
       <h2 className="bold-32 text-center mb-10 min-w-[355px]">
-        Signup to your account
+        Register your Email
       </h2>
       <form onSubmit={formik.handleSubmit}>
         <TextInput

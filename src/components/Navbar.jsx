@@ -2,10 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const links = [
-  { path: "/", name: "Home" },
-  { path: "/crypto", name: "Crypto" },
+  { path: "/news", name: "News" },
   { path: "/blog", name: "Blog" },
-  { path: "/submit", name: "Submit" },
+  { path: "/submit", name: "Create Blog" },
 ];
 
 const Navbar = ({ containerStyles }) => {

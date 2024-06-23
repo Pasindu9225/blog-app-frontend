@@ -27,14 +27,14 @@ const Header = () => {
           containerStyles={`${
             menuOpened
               ? "flexCenter flex-col gap-y-8 justify-center fixed top-24 p-12 bg-white rounded-3xl transition-all duration-500 shadow-md right-0 w-full medium-16"
-              : "flex gap-x-6 text-gray-30 xl:gap-x-20 medium-16"
+              : "flex gap-x-6 text-gray-30 hidden md:flex xl:gap-x-20 medium-16"
           }`}
         />
         <div className=" flexBetween gap-2 bold-16">
           {!menuOpened ? (
             <CgMenuRight
               onClick={toggleMenu}
-              className="cursor-pointer text-2xl hover:text-secondary mr-2"
+              className="cursor-pointer flex md:hidden text-2xl hover:text-secondary mr-2"
             />
           ) : (
             <CgClose
