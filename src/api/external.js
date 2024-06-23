@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
+// const NEWS_API_KEY = process.env.REACT_APP_NEWS_API_KEY;
 
 const NEWS_API_ENDPOINT =
   "https://saurav.tech/NewsAPI/top-headlines/category/business/in.json";

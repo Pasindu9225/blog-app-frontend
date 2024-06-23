@@ -5,22 +5,33 @@ import Loader from "../components/Loader";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true); // State to manage loading state
   const navigate = useNavigate();
 
   useEffect(() => {
-    (async function getAllBlogsApiCall() {
+    async function fetchData() {
       try {
-        const response = await getAllBlogs();
-        if (response.status === 200) {
-          setBlogs(response.data.blogs);
-        }
+        // Delay the fetch by 2 seconds (2000 milliseconds)
+        setTimeout(async () => {
+          const response = await getAllBlogs();
+          if (response.status === 200) {
+            setBlogs(response.data.blogs);
+            console.log("all blogs", response.data.blogs);
+            setLoading(false); // Update loading state after fetching data
+          } else {
+            console.error("Failed to fetch blogs:", response.statusText);
+          }
+        }, 2000);
       } catch (error) {
-        console.log("Error fetching blogs:", error);
+        console.error("Error fetching blogs:", error.message);
+        setLoading(false); // Update loading state in case of error
       }
-    })();
+    }
+
+    fetchData();
   }, []);
 
-  if (blogs.length === 0) {
+  if (loading) {
     return <Loader text={"blogs"} />;
   }
 
@@ -34,19 +45,23 @@ const Blog = () => {
             onClick={() => navigate(`/blog/${blog._id}`)}
           >
             <img
-              src={blog.photo}
-              alt={`${blog.title} image`}
+              src={blog.photoPath}
+              alt={`Thumbnail for ${blog.title}`}
               className="block object-cover w-full rounded-2xl h-44 bg-white"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = "default-image-url.jpg"; // Set a default image URL if there's an error
+                e.target.src = "default-image-url.jpg"; // Fallback image URL
               }}
             />
             <h4 className="text-left mt-4 bold-16 line-clamp-2 text-[#333]">
               {blog.title}
             </h4>
             <p className="line-clamp-3 mt-2 text-left">{blog.content}</p>
-            <button className="mt-4 text-blue-600 hover:underline">
+            <button
+              className="mt-4 text-blue-600 hover:underline"
+              onClick={() => navigate(`/blog/${blog._id}`)}
+              aria-label={`Read more about ${blog.title}`}
+            >
               Read More
             </button>
           </div>

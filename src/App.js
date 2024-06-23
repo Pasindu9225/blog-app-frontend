@@ -5,16 +5,22 @@ import Home from "./pages/Home";
 import Crypto from "./pages/Crypto";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import BlogUpdate from "./pages/BlogUpdate";
 import Submitblog from "./pages/Submitblog";
 import Protected from "./components/Protected";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Error from "./pages/Errror";
 import { useSelector } from "react-redux";
+import useAutoLogin from "./hooks/useAutoLogin";
+import Loader from "./components/Loader";
 
 export default function App() {
   const isAuth = useSelector((state) => state.user.auth);
-  return (
+  const loading = useAutoLogin();
+  return loading ? (
+    <Loader text={""} />
+  ) : (
     <>
       <BrowserRouter>
         <main className=" bg-white text-primary">
@@ -45,7 +51,7 @@ export default function App() {
               exact
               element={
                 <Protected isAuth={isAuth}>
-                  <Blog />
+                  <BlogUpdate />
                 </Protected>
               }
             />

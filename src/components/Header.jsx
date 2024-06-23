@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed top-2 left-0 m-auto max_padd_container w-full">
+    <div className=" fixed top-2 left-0 m-auto max_padd_container w-full">
       <div className="max_container px-4 flexBetween py-3 shadow-lg bg-white ring-1 ring-slate-900/5 mb-24 max-xs:py-2">
         <div className="font-bold text-blue-700 text-xl">
           <Link to={"/"}>BlogVerse</Link>
